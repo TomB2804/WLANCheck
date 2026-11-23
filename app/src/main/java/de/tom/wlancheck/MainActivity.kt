@@ -20,6 +20,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Menu
+import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
@@ -130,6 +132,22 @@ class MainActivity : Activity() {
     override fun onDestroy() {
         io.shutdownNow()
         super.onDestroy()
+    }
+
+    // ---------------------------------------------------------------- Menü
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menu.add(Menu.NONE, MENU_INFO, Menu.NONE, "Info")
+            .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == MENU_INFO) {
+            startActivity(Intent(this, InfoActivity::class.java))
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     // ---------------------------------------------------------------- Berechtigungen
@@ -520,4 +538,8 @@ class MainActivity : Activity() {
     }
 
     private fun toast(msg: String) = Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+
+    companion object {
+        private const val MENU_INFO = 1
+    }
 }
