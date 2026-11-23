@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Verbindung -->
+        <TextView style="@style/Section" android:text="Aktuelle Verbindung" />
+
+        <TextView
+            android:id="@+id/tvSignal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvConn"
+            style="@style/Card"
+            android:fontFamily="monospace"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnRefresh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Aktualisieren" />
+            <Button
+                android:id="@+id/btnLive"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Live-Messung" />
+        </LinearLayout>
+
+        <!-- Diagnose -->
+        <TextView style="@style/Section" android:text="Diagnose" />
+        <TextView android:id="@+id/tvDiag" style="@style/Card" />
+
+        <!-- Tests -->
+        <TextView style="@style/Section" android:text="Tests" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ping-Test" />
+            <Button
+                android:id="@+id/btnSpeed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Speedtest" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvTests"
+            style="@style/Card"
+            android:text="Ping misst die Verbindung zum Router und ins Internet, Speedtest die Download-Geschwindigkeit." />
+
+        <!-- Scan -->
+        <TextView style="@style/Section" android:text="WLANs in der Nähe" />
+        <Button
+            android:id="@+id/btnScan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jetzt scannen" />
+        <RadioGroup
+            android:id="@+id/bandGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/rbAll" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alle" android:checked="true" />
+            <RadioButton android:id="@+id/rb24" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2,4 GHz" />
+            <RadioButton android:id="@+id/rb5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5 GHz" />
+            <RadioButton android:id="@+id/rb6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6 GHz" />
+        </RadioGroup>
+        <TextView
+            android:id="@+id/tvScanInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingBottom="4dp"
+            android:text="Tipp: Auf einen Eintrag tippen, um den Access Point zu benennen." />
+        <TextView
+            android:id="@+id/tvChannels"
+            style="@style/Card"
+            android:fontFamily="monospace"
+            android:textSize="12sp" />
+        <LinearLayout
+            android:id="@+id/scanList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+</ScrollView>
